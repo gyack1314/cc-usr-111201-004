@@ -1,0 +1,83 @@
+{
+  "requests": [
+    {
+      "request_id": "diamond",
+      "workload": "move",
+      "nodes": [
+        {
+          "id": "source",
+          "component": "boundary",
+          "duration": 0
+        },
+        {
+          "id": "a",
+          "component": "vision",
+          "duration": 10
+        },
+        {
+          "id": "b",
+          "component": "planning",
+          "duration": 10
+        },
+        {
+          "id": "c",
+          "component": "control",
+          "duration": 2
+        },
+        {
+          "id": "sink",
+          "component": "boundary",
+          "duration": 0
+        }
+      ],
+      "edges": [
+        {
+          "from": "source",
+          "to": "a",
+          "lag": 0
+        },
+        {
+          "from": "source",
+          "to": "b",
+          "lag": 0
+        },
+        {
+          "from": "a",
+          "to": "c",
+          "lag": 0
+        },
+        {
+          "from": "b",
+          "to": "c",
+          "lag": 0
+        },
+        {
+          "from": "c",
+          "to": "sink",
+          "lag": 0
+        },
+        {
+          "from": "c",
+          "to": "a",
+          "lag": 0
+        }
+      ],
+      "source": "source",
+      "sink": "sink",
+      "wall_duration": 12
+    }
+  ],
+  "speedups": {
+    "vision": "2",
+    "planning": "2",
+    "control": "2"
+  },
+  "shapley_components": [
+    "vision",
+    "planning",
+    "control"
+  ],
+  "max_components": 12,
+  "unit": "microsecond",
+  "residual_tolerance": 1
+}
