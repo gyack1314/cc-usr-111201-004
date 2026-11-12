@@ -1,0 +1,26 @@
+{
+  "requests": [
+    {
+      "request_id": "detached",
+      "workload": "move",
+      "nodes": [
+        {"id": "source", "component": "boundary", "duration": 0},
+        {"id": "a", "component": "vision", "duration": 4},
+        {"id": "orphan", "component": "planning", "duration": 3},
+        {"id": "sink", "component": "boundary", "duration": 0}
+      ],
+      "edges": [
+        {"from": "source", "to": "a", "lag": 0},
+        {"from": "a", "to": "sink", "lag": 0}
+      ],
+      "source": "source",
+      "sink": "sink",
+      "wall_duration": 4
+    }
+  ],
+  "speedups": {"vision": "2", "planning": "2"},
+  "shapley_components": ["vision", "planning"],
+  "max_components": 12,
+  "unit": "microsecond",
+  "residual_tolerance": 1
+}
